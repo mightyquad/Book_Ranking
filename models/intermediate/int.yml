@@ -1,0 +1,9 @@
+version: 2
+
+models:
+ - name: int_average_ranking
+   columns:
+    - name: bookid
+      tests:
+      - unique
+      - not_null
