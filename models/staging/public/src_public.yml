@@ -1,0 +1,73 @@
+version: 2
+
+sources:
+ - name: public
+   description: A generic name that I should have changed...
+   database:  books_db
+   tables:
+    - name: author
+      description: The list of authors in my data.
+      columns:
+        - name: authorid
+          tests:
+           - unique
+           - not_null
+        - name: author
+          tests:
+           - unique
+    - name: book
+      description: The list of books.
+      columns:
+        - name: bookid
+          tests:
+           - unique
+           - not_null
+        - name: title
+          tests:
+           - unique
+           - not_null
+    - name: person
+      description: The list of people who have rated the books.
+      columns:
+        - name: personid
+          tests:
+           - unique
+           - not_null
+        - name: first_name
+          tests:
+           - not_null
+    - name: ranking
+      description: The list of scores each person has submitted for each book.
+      columns:
+        - name: bookid
+          tests:
+           - not_null
+        - name: personid
+          tests:
+           - not_null
+    - name: series
+      description: The series names for groups of books.
+      columns:
+        - name: seriesid
+          tests:
+           - unique
+           - not_null
+      columns:
+        - name: seriesname
+          tests:
+           - unique
+           - not_null
+    - name: seriesbooks
+      description: The book order number for the books in the series.
+      columns:
+        - name: bookid
+          tests:
+           - not_null
+      columns:
+        - name: seriesid
+          tests:
+           - not_null
+      columns:
+        - name: seriesnumber
+          tests:
+           - not_null
